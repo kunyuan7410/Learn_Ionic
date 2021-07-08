@@ -1,0 +1,56 @@
+.iconCart ion-icon {
+	font-size: 30px;
+	color: #ffc409;
+	margin-right: 10px;
+}
+
+.iconAdd ion-icon {
+	font-size: 20px;
+	color: #000000;
+	margin-right: 10px;
+}
+
+.closeModal ion-buttons ion-button {
+	text-transform: none;
+}
+
+.slideControl ion-card {
+	margin-top: 30px;
+	width: 95%;
+	height: 400px;
+	background-color: #f14b7f;
+}
+.slideControl ion-card ion-card-header ion-card-title {
+	color: black;
+}
+.slideControl ion-card ion-card-content {
+	color: white;
+}
+.employeeModal {
+	margin-top: 10px;
+}
+.employeeModal ion-item ion-icon {
+	color: rgb(224, 24, 84);
+}
+.iconAddEmployee {
+	text-align: center;
+	margin-top: 30px;
+}
+.iconAddEmployee ion-icon {
+	font-size: 130px;
+	color: rgb(224, 24, 84);
+}
+
+.cartEmpty {
+	margin-top: 100px;
+}
+
+/* .RefreshContent ion-refresher {
+	background-color: #fff !important;
+} */
+
+.RefreshContent ion-refresher ion-refresher-content {
+	margin-top: 25px;
+	padding-bottom: 50px;
+	--ion-background-color: #fff;
+}
