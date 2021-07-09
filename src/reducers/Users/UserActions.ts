@@ -45,7 +45,6 @@ export const GetUser =
 			dispatch({
 				type: USER_SUCCESS,
 				payload: res.data,
-				userName: user,
 			});
 		} catch (e) {
 			dispatch({

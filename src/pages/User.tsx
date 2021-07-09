@@ -81,7 +81,6 @@ const User: React.FC = () => {
 	const handleChange = (e: CustomEvent) => setUserName(e.detail.value);
 	const handleSearch = () => {
 		history.push(`${urls.APP_USER}/${userName}`);
-		dispatch(GetUser(userName));
 	};
 	// const handleSearch = () => {
 	// 	history.push({
@@ -91,7 +90,6 @@ const User: React.FC = () => {
 	// 	});
 	// };
 
-	console.log(userState.users);
 	const [myModal, setMyModal] = useState({ isOpen: false });
 	return (
 		<IonPage>

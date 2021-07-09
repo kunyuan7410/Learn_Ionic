@@ -14,6 +14,7 @@ export type User = {
 };
 
 export type UserList = User[];
+export type UserSearch = User[];
 
 export const UserInitialState = {
 	id: '',
@@ -24,6 +25,7 @@ export const UserInitialState = {
 };
 
 export const UserListInitialState = [UserInitialState];
+export const UserSearchInitialState = [UserInitialState];
 
 export interface UserLoading {
 	type: typeof USER_LOADING;
@@ -35,7 +37,7 @@ export interface UserFail {
 
 export interface UserSuccess {
 	type: typeof USER_SUCCESS;
-	payload: User;
+	payload: UserSearch;
 }
 
 export interface UserListLoading {
