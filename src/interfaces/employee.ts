@@ -3,3 +3,7 @@ export default interface typeEmployee {
 	phonenumber: string;
 	email: string;
 }
+
+// export interface State {
+// 	employees: typeEmployee[];
+// }
