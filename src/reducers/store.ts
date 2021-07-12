@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import userReducer from './Users/UserReducer';
 import { webEmployeeSlice } from './Employees/createSlice';
+import { userSlice, userSearchSlice } from './Users/createSlice';
 
 // const employeeLocalStorage = localStorage.getItem('EmployeeData');
 // const employeeData = employeeLocalStorage
@@ -34,7 +35,9 @@ function loadEmployeeFromLocalStorage() {
 
 export const store = configureStore({
 	reducer: {
-		users: userReducer,
+		users: userSlice.reducer,
+		userSearch: userSearchSlice.reducer,
+		// users: userReducer,
 		employees: webEmployeeSlice.reducer,
 		// RootReducer,
 		// composeWithDevTools(applyMiddleware(thunk))

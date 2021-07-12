@@ -15,16 +15,21 @@ import { RootStore } from '../reducers/store';
 
 import User from './User';
 import { useParams } from 'react-router-dom';
+import { fetchSearchUser } from '../reducers/Users/createSlice';
 
 const UserListSearch: React.FC = () => {
 	let { username } = useParams<{ username?: any }>();
 	console.log(`username=${username}`);
 
 	const dispatch = useDispatch();
-	const userState = useSelector((state: RootStore) => state.users);
+	const userState = useSelector((state: RootStore) => state.userSearch);
+	// useEffect(() => {
+	// 	dispatch(GetUser(username));
+	// }, [username]);
 	useEffect(() => {
-		dispatch(GetUser(username));
+		dispatch(fetchSearchUser(username));
 	}, [username]);
+	console.log(userState.user);
 
 	const ShowData = () => {
 		if (!_.isEmpty(userState.user)) {
@@ -41,10 +46,6 @@ const UserListSearch: React.FC = () => {
 							</div>
 						);
 					})}
-					{/* <h2>{userData.id}</h2>
-					<h2>{userData.name}</h2>
-					<h2>{userData.username}</h2>
-					<h2>{userData.phone}</h2> */}
 				</>
 			);
 		}

@@ -2,12 +2,14 @@ import { combineReducers } from 'redux';
 import employeeReducer from './employeeReducer';
 import userReducer from './Users/UserReducer';
 import { webEmployeeSlice } from './Employees/createSlice';
+import { userSlice, userSearchSlice } from './Users/createSlice';
 
 const RootReducer = combineReducers({
-	users: userReducer,
+	// users: userReducer,
+	users: userSlice.reducer,
+	userSearch: userSearchSlice.reducer,
 	// employees: employeeReducer,
 	employees: webEmployeeSlice.reducer,
-	// conterEmployee: counterSlice.reducer,
 });
 
 export default RootReducer;

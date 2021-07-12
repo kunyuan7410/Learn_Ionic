@@ -1,29 +1,31 @@
 import {
-	WebEmployeeState,
-	WebEmployee,
-	initialWebEmployeeState,
+	// WebEmployeeState,
+	// WebEmployee,
+	// initialWebEmployeeState,
+
+	webEmployeeInitialState,
 } from './types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import typeEmployee from '../../interfaces/employee';
 
-export interface webEmployeeState {
-	employees: typeEmployee[];
-}
+// export interface webEmployeeState {
+// 	employees: typeEmployee[];
+// }
 
-const webEmployeeInitialState: webEmployeeState = {
-	employees: [
-		{
-			name: 'Justin',
-			phonenumber: '014-9849910',
-			email: 'kunyuan45@gmail.com',
-		},
-		{
-			name: 'Goh',
-			phonenumber: '012-9849910',
-			email: 'Goh@gmail.com',
-		},
-	],
-};
+// const webEmployeeInitialState: webEmployeeState = {
+// 	employees: [
+// 		{
+// 			name: 'Justin',
+// 			phonenumber: '014-9849910',
+// 			email: 'kunyuan45@gmail.com',
+// 		},
+// 		{
+// 			name: 'Goh',
+// 			phonenumber: '012-9849910',
+// 			email: 'Goh@gmail.com',
+// 		},
+// 	],
+// };
 
 // export const initialState: WebEmployeeState = {
 // 	employees: initialWebEmployeeState,
