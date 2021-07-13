@@ -37,6 +37,10 @@ import { RootStore } from '../reducers/store';
 import typeEmployee from '../interfaces/employee';
 import urls from '../urls';
 import './styles.css';
+import {
+	addEmployeeActionCreator,
+	deleteEmployeeActionCreator,
+} from '../reducers/Employees/createSlice';
 
 interface NavigateURL {
 	history: any;
@@ -56,17 +60,21 @@ const Employee: React.FC<NavigateURL> = ({ history }) => {
 	const [myModal, setMyModal] = useState({ isOpen: false });
 	// <employeeState, employeeState['employees']>
 	const employees = useSelector((state: RootStore) => state.employees);
+	// const employees = useSelector((state: State) => state.employees);
 
 	const dispatch = useDispatch();
 
 	const addEmployee = (employee: typeEmployee) => {
-		dispatch({ type: 'ADD_EMPLOYEE', payload: employee });
+		dispatch(addEmployeeActionCreator(employee));
 	};
+	// const addEmployee = (employee: typeEmployee) => {
+	// 	dispatch({ type: 'ADD_EMPLOYEE', payload: employee });
+	// };
 	const removeEmployee = (employee: typeEmployee) => {
-		dispatch({ type: 'REMOVE_EMPLOYEE', payload: employee });
+		dispatch(deleteEmployeeActionCreator(employee));
 	};
 
-	console.log(employees.employees);
+	console.log(employees);
 
 	return (
 		<IonPage>

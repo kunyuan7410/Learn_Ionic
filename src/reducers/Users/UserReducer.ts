@@ -11,12 +11,14 @@ import {
 	USER_LIST_FAIL,
 	USER_LIST_LOADING,
 	USER_LIST_SUCCESS,
+	UserSearch,
+	UserSearchInitialState,
 } from './UserActionTypes';
 
 interface DefaultState {
 	loading: boolean;
 	error?: string;
-	user: User;
+	user: UserSearch;
 	users: UserList;
 	pageNumber?: number;
 }
@@ -24,7 +26,7 @@ interface DefaultState {
 const defaultState: DefaultState = {
 	loading: false,
 	error: '',
-	user: UserInitialState,
+	user: UserSearchInitialState,
 	users: UserListInitialState,
 	pageNumber: 0,
 };

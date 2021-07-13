@@ -33,7 +33,6 @@ import Post from './pages/Post';
 import PostArtical from './pages/PostArtical';
 import User from './pages/User';
 
-import UserSearch from './pages/UserSearch';
 import UserListSearch from './pages/UserListSearch';
 
 export interface appProps {}

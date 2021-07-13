@@ -22,27 +22,30 @@ import { RootStore } from '../reducers/store';
 import { GetUser, GetUserList } from '../reducers/Users/UserActions';
 import _ from 'lodash';
 import urls from '../urls';
-
-// interface NavigateURL {
-// 	history: any;
-// }
+import { fetchUsers } from '../reducers/Users/createSlice';
 
 const User: React.FC = () => {
 	let history = useHistory();
-	// const goTo = (path: string) => {
 
-	// 	history.push(path, { direction: 'forward' });
-	// };
 	const dispatch = useDispatch();
 	const userState = useSelector((state: RootStore) => state.users);
 	useEffect(() => {
-		FetchData(1);
-	}, []);
-	const FetchData = (page = 1) => {
-		dispatch(GetUserList(page));
-	};
+		const fetchUserData = async () => {
+			await dispatch(fetchUsers());
+		};
+		fetchUserData();
+	}, [dispatch]);
+	console.log(userState.users);
+	// useEffect(() => {
+	// 	FetchData(1);
+	// }, []);
+
+	// const FetchData = (page = 1) => {
+	// 	dispatch(GetUserList(page));
+	// };
+
 	const ShowData = () => {
-		if (userState.loading) {
+		if (userState.loading == 'pending') {
 			return <p>Loading...</p>;
 		}
 
@@ -58,8 +61,6 @@ const User: React.FC = () => {
 										to={`${urls.APP_USER}/${user.name}`}
 										key={index + 3}
 										slot="end"
-
-										// onClick={() => viewUser(user.name)}
 									>
 										View
 									</Link>
@@ -81,17 +82,8 @@ const User: React.FC = () => {
 	const handleChange = (e: CustomEvent) => setUserName(e.detail.value);
 	const handleSearch = () => {
 		history.push(`${urls.APP_USER}/${userName}`);
-		dispatch(GetUser(userName));
 	};
-	// const handleSearch = () => {
-	// 	history.push({
-	// 		pathname: `${urls.APP_USER}/${userName}`,
 
-	// 		state:user:{userName},
-	// 	});
-	// };
-
-	console.log(userState.users);
 	const [myModal, setMyModal] = useState({ isOpen: false });
 	return (
 		<IonPage>
@@ -101,13 +93,6 @@ const User: React.FC = () => {
 						<IonMenuButton />
 					</IonButtons>
 					<IonTitle>User</IonTitle>
-					{/* <div className="iconAdd" slot="end">
-						<IonIcon
-							slot="end"
-							icon={personAddOutline}
-							onClick={() => setMyModal({ isOpen: true })}
-						/>
-					</div> */}
 				</IonToolbar>
 			</IonHeader>
 			<IonContent fullscreen>
@@ -124,9 +109,7 @@ const User: React.FC = () => {
 							</div>
 						</IonToolbar>
 					</IonHeader>
-					<IonContent>
-						{/* <AddEmployeeInput addEmployee={addEmployee} /> */}
-					</IonContent>
+					<IonContent></IonContent>
 				</IonModal>
 				<IonGrid>
 					<IonRow>
@@ -147,19 +130,6 @@ const User: React.FC = () => {
 					</IonRow>
 				</IonGrid>
 				{ShowData()}
-
-				{/* {userState.user && (
-					<div>
-						{userState.user.map((user, index) => {
-							return (
-								<div key={index + 1}>
-									<p key={index + 2}>{user.id}</p>
-									<p key={index + 3}>{user.name}</p>
-								</div>
-							);
-						})}
-					</div>
-				)} */}
 			</IonContent>
 		</IonPage>
 	);
